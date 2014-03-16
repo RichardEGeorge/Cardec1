@@ -179,7 +179,7 @@ def print_pack(p):
         line = '    ';
         for r in range(0,4):
             i = (r*13)+c;
-            line += '%2d: ' % (i+1) + card(pack[i]) + '    ';
+            line += '%2d: ' % (i+1) + encode_card[0](pack[i]) + '    ';
         print line;
 
 def pack_oneline(pack,uni=True):
