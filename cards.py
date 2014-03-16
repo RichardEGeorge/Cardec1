@@ -4,7 +4,7 @@
 # A program to translate a short string into the order of a pack of cards and vice versa
 #
 # There are 52! ways to arrange a standard pack of playing cards, so that we can
-# transmit log(52!)/log2) = 225 bits of data using a pack of cards
+# transmit log(52!)/log(2) = 225 bits of data using a pack of cards
 #
 # This program uses an alphabet of 67 characters (6.07 bits per character)
 # so that we can send a 53 character message using the pack.
@@ -47,7 +47,7 @@ for i in range(0,52):
         lookup[encode_card[j](i)]=i;
 
 # put a leading space in front of short cards, e.g. ' 2D' '10D'
-card = lambda n: card1(n) if n % 13 == 9 else ' '+card1(n);
+card = lambda n: encode_card[0](n) if n % 13 == 9 else ' '+encode_card[0](n);
 
 # Convert a message into an integer, and vice versa
 
