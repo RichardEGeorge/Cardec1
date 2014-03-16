@@ -51,7 +51,7 @@ card = lambda n: encode_card[0](n) if n % 13 == 9 else ' '+encode_card[0](n);
 
 # Convert a message into an integer, and vice versa
 
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,\"! ";
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,<>£$#\"! ";
 encode = {};
 decode = {};
 
