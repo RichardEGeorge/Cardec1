@@ -4,10 +4,10 @@
 # A program to translate a short string into the order of a pack of cards and vice versa
 #
 # There are 52! ways to arrange a standard pack of playing cards, so that we can
-# transmit log(52!)/log(2) = 225 bits of data using a pack of cards
+# transmit log(52!)/log(2) = 225.6 bits of data using a pack of cards
 #
-# This program uses an alphabet of 67 characters (6.07 bits per character)
-# so that we can send a 53 character message using the pack.
+# This program uses an alphabet of 73 characters (6.19 bits per character)
+# so that we can send a 36.4 character message using the pack.
 # 
 # The alphabet could be reduced (e.g. leaving out capitals) to increase the
 # capacity for English, though for TinyURLs and the like, perhaps the ability
@@ -16,6 +16,7 @@
 # (c) 2014 Richard George
 
 import sys;
+import math;
 
 # Converting integers to playing cards
 
@@ -59,6 +60,16 @@ for i,v in enumerate(alphabet):
     encode[v]=i;
     decode[i]=v;
     
+# Channel capacity
+
+def fac(n):
+    return 1 if n==1 else n*fac(n-1);
+    
+bits_per_char = math.log(len(alphabet))/math.log(2.0);
+bits_per_pack = math.log(fac(52))/math.log(2.0);
+
+chars_per_pack = bits_per_pack / bits_per_char;
+
 # Real code starts here
 
 def check_number_range(n):
