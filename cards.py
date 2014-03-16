@@ -6,8 +6,8 @@
 # There are 52! ways to arrange a standard pack of playing cards, so that we can
 # transmit log(52!)/log(2) = 225.6 bits of data using a pack of cards
 #
-# This program uses an alphabet of 73 characters (6.19 bits per character)
-# so that we can send a 36.4 character message using the pack.
+# This program uses an alphabet of 75 characters (6.23 bits per character)
+# so that we can send a 36.2 character message using the pack.
 # 
 # The alphabet could be reduced (e.g. leaving out capitals) to increase the
 # capacity for English, though for TinyURLs and the like, perhaps the ability
@@ -52,7 +52,7 @@ card = lambda n: encode_card[0](n) if n % 13 == 9 else ' '+encode_card[0](n);
 
 # Convert a message into an integer, and vice versa
 
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,<>£$#\"! ";
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,<>£$#:/\"! ";
 encode = {};
 decode = {};
 
