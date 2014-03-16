@@ -192,8 +192,13 @@ def pack_oneline(pack,uni=True):
             result += ' ';
     return result;
         
-def encode_message_to_number(m):
+def encode_message_to_number(i):
     '''Convert a string drawn from alphabet into an integer'''
+
+    m = i.strip();
+    if len(m)==0:
+        return 0;
+    
     result = 0;
     for i in range(len(m)-1,-1,-1):
         result *= len(alphabet);
